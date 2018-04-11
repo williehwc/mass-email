@@ -6,7 +6,7 @@ Clone this repo, then run `sudo apt-get install sendemail` to install [sendEmail
 
 Next, modify the `config.json` file as follows:
 
-- `server`: the SMTP server, such as `smtp.cs.toronto.edu` or `smtp.office365.com`
+- `server`: the SMTP server, such as `smtp.cs.toronto.edu` or `smtp.office365.com`.
 - `port`: the SMTP port number, such as `587`.
 - `tls`: use TLS? Choices are `yes`, `no`, and `auto`.
 - `from`: the email address from which you are sending the email; either `john@example.com` or `John Smith <john@example.com>` format is accepted. Note that many email servers will intervene (e.g. overwrite your `from` address) if you enter an unauthorized `from` address.
