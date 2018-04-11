@@ -1,0 +1,7 @@
+{
+  "server": "smtp.example.com",
+  "port": 587,
+  "tls": "yes",
+  "from": "John Smith <john.smith@example.com>",
+  "username": "john.smith"
+}
