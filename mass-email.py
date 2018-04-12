@@ -24,18 +24,21 @@ header = next(reader)
 rows = [dict(zip(header, row)) for row in reader]
 for row in rows:
     to = row['to']
+    print('Sending email to', to)
     email_filename = default_email_filename
     try:
         email_filename = row['filename']
     except:
         pass
     email_file = open(email_filename)
-    subject = process_template(email_file.readline(), row)
+    subject = process_template(email_file.readline().strip(), row)
     body = ''
     while True:
         line = email_file.readline()
         if not line:
             break
+        if body == '' and line.strip() == '':
+        	continue
         body += process_template(line, row)
     email_file.close()
     mapping = {
