@@ -1,8 +1,10 @@
 # Mass Email
-A script for sending mass emails over SMTP using [sendEmail](http://caspian.dotconf.net/menu/Software/SendEmail/). Tested on Ubuntu 14.04.
+A script for sending mass emails over SMTP using [sendEmail](http://caspian.dotconf.net/menu/Software/SendEmail/). Tested on Ubuntu 14.04 and macOS Sierra.
 
 ## How to use
-Clone this repo, then run `sudo apt-get install sendemail` to install [sendEmail](http://caspian.dotconf.net/menu/Software/SendEmail/).
+Clone this repo, then run `sudo apt-get install sendemail` on Ubuntu or `brew install sendemail` on macOS* to install [sendEmail](http://caspian.dotconf.net/menu/Software/SendEmail/).
+
+*To install Homebrew on macOS, please refer to the instructions at [brew.sh](https://brew.sh).
 
 Next, modify the `config.json` file as follows:
 
@@ -16,4 +18,4 @@ You'll need a `list.csv` file that defines the email addresses (`to`) and custom
 
 The email file defined by `filename` (or the default `email.txt`) should have at least two lines. The first line will always be the subject. The second line onwards is the body text. In both the subject and the body, fields/variables can be defined using braces. For example, `{name}` in the subject and/or body will be replaced with the `name` defined in `list.csv`.
 
-Finally, run `python3 mass-email.py`; you will be prompted for your SMTP password.
+Finally, run `python3 mass-email.py` (`python` 2.7 should also work); you will be prompted for your SMTP password.
