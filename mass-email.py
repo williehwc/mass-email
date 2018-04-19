@@ -23,11 +23,11 @@ reader = csv.reader(open('list.csv'))
 header = next(reader)
 rows = [dict(zip(header, row)) for row in reader]
 for row in rows:
-    to = row['to']
+    to = row['to'].strip()
     print('Sending email to', to)
     email_filename = default_email_filename
     try:
-        email_filename = row['filename']
+        email_filename = row['filename'].strip()
     except:
         pass
     email_file = open(email_filename)
