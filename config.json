@@ -3,5 +3,7 @@
   "port": 587,
   "tls": "yes",
   "from": "John Smith <john.smith@example.com>",
-  "username": "john.smith"
+  "username": "john.smith",
+  "cc": ["jane.smith@example.com", "Johnny Appleseed <johnny.appleseed@example.com>"],
+  "bcc": []
 }

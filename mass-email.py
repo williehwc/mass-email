@@ -10,6 +10,22 @@ tls = config['tls'] # Choices: yes, no, auto
 from_addr = config['from']
 username = config['username']
 password = getpass.getpass('Enter your SMTP password:')
+ccs = config['cc']
+bccs = config['bcc']
+
+# CC
+cc_string = ''
+if len(ccs) > 0:
+  cc_string = '-cc'
+  for cc in ccs:
+    cc_string += ' "' + cc + '"'
+
+# BCC
+bcc_string = ''
+if len(bccs) > 0:
+  bcc_string += '-bcc'
+  for bcc in bccs:
+    bcc_string += ' "' + bcc + '"'
 
 # Process template function
 def process_template(string, replacements):
@@ -45,6 +61,8 @@ for row in rows:
         'tls': tls,
         'from': from_addr,
         'to': to,
+        'cc_string': cc_string,
+        'bcc_string': bcc_string,
         'server': server,
         'port': port,
         'username': username,
@@ -52,4 +70,4 @@ for row in rows:
         'subject': subject,
         'body': body
     }
-    os.system('sendemail -o tls=%(tls)s -f "%(from)s" -t "%(to)s" -s %(server)s:%(port)s -xu "%(username)s" -xp "%(password)s" -u "%(subject)s" -m "%(body)s"' % mapping)
+    os.system('sendemail -o tls=%(tls)s -f "%(from)s" -t "%(to)s" %(cc_string)s %(bcc_string)s -s %(server)s:%(port)s -xu "%(username)s" -xp "%(password)s" -u "%(subject)s" -m "%(body)s"' % mapping)

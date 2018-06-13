@@ -13,6 +13,8 @@ Next, modify the `config.json` file as follows:
 - `tls`: use TLS? Choices are `yes`, `no`, and `auto`.
 - `from`: the email address from which you are sending the email; either `john@example.com` or `John Smith <john@example.com>` format is accepted. Note that many email servers will intervene (e.g. overwrite your `from` address) if you enter an unauthorized `from` address.
 - `username`: your SMTP username; we'll ask for your password later.
+- `cc`: an array of email addresses to carbon-copy in every email.
+- `bcc`: an array of email addresses to blind carbon-copy in every email.
 
 You'll need a `list.csv` file that defines the email addresses (`to`) and custom variables/fields. For each recipient, you can define a `filename` to use for the email subject and body. If `filename` is not defined, `email.txt` is used. The header row `to,filename,...` is required.
 
